@@ -1,157 +1,157 @@
+
+  :root {
+	--dark: #374151;
+	--darker: #1F2937;
+	--darkest: #111827;
+	--grey: #6B7280;
+	--pink: #EC4899;
+	--purple: #8B5CF6;
+	--light: #EEE;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Fira sans", sans-serif;
 }
 
 body {
-    background-color: mediumslateblue;
-    color: white;
-    font-family: "Poppins", sans-serif;
-    min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	color: #FFF;
+	background-color: var(--dark);
 }
 
 header {
-    font-size: 1.5rem;
+	padding: 2rem 1rem;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
 }
 
-header, 
-form {
-    min-height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+header h1{ 
+	font-size: 2.5rem;
+	font-weight: 300;
+	color: var(--grey);
+	margin-bottom: 1rem;
 }
 
-form input, 
-form button {
-    padding: 0.5rem;
-    padding-left: 1rem;
-    font-size: 1.8rem;
-    border: none;
-    background: white;
-    border-radius: 2rem;
+#new-task-form {
+	display: flex;;
 }
 
-form button {
-    color: rgb(255, 200, 0);
-    background: white;
-    cursor: pointer;
-    transition: all 0.3 ease;
-    margin-left: 0.5rem;
+input, button {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
 }
 
-form button:hover {
-    color: white;
-    background: rgb(255, 200, 0);
+#new-task-input {
+	flex: 1 1 0%;
+	background-color: var(--darker);
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-right: 1rem;
+	color: var(--light);
+	font-size: 1.25rem;
 }
 
-.fa-plus-circle {
-    margin-top: 0.3rem;
-    margin-left: -8px;
+#new-task-input::placeholder {
+	color: var(--grey);
 }
 
-.todo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#new-task-submit {
+	color: var(--pink);
+	font-size: 1.25rem;
+	font-weight: 700;
+	background-image: linear-gradient(to right, var(--pink), var(--purple));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	cursor: pointer;
+	transition: 0.4s;
 }
 
-.todo-list {
-    min-width: 30%;
-    list-style: none;
+#new-task-submit:hover {
+	opacity: 0.8;
 }
 
-.todo {
-    margin: 0.5rem;
-    padding-left: 0.5rem;
-    background: white;
-    color: black;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 2rem;
+#new-task-submit:active {
+	opacity: 0.6;
 }
 
-.todo li {
-    flex: 1;
+main {
+	flex: 1 1 0%;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
 }
 
-.trash-btn, 
-.complete-btn {
-    color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    font-size: 1.5rem;
+.task-list {
+	padding: 1rem;
 }
 
-.complete-btn {
-    background: rgb(255, 200, 0);
+.task-list h2 {
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: var(--grey);
+	margin-bottom: 1rem;
 }
 
-.trash-btn {
-    border-top-right-radius: 1.75rem;
-    border-bottom-right-radius: 1.75rem;
-    background: rgb(171, 171, 171);
+#tasks .task {
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--darkest);
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
 }
 
-.todo-item {
-    padding: 0rem 0.5rem;
+.task .content {
+	flex: 1 1 0%;
 }
 
-.fa-trash, 
-.fa-check-circle {
-    pointer-events: none;
+.task .content .text {
+	color: var(--light);
+	font-size: 1.125rem;
+	width: 100%;
+	display: block;
+	transition: 0.4s;
 }
 
-.completed {
-    text-decoration: line-through;
-    opacity: 0.5;
+.task .content .text:not(:read-only) {
+	color: var(--pink);
 }
 
-.slide {
-    transform: translateX(10rem);
-    opacity: 0;
+.task .actions {
+	display: flex;
+	margin: 0 -0.5rem;
 }
 
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    border: none;
+.task .actions button {
+	cursor: pointer;
+	margin: 0 0.5rem;
+	font-size: 1.125rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	transition: 0.4s;
 }
 
-.select {
-    margin: 1rem;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50px;
+.task .actions button:hover {
+	opacity: 0.8;
 }
 
-select {
-    color:rgb(255, 200, 0);
-    width: 10rem;
-    height: 3.2rem;
-    cursor: pointer;
-    padding: 1rem;
+.task .actions button:active {
+	opacity: 0.6;
 }
 
-.select::after {
-    content: "\25BC";
-    position: absolute;
-    background:rgb(255, 200, 0);
-    top: 0;
-    right: 0;
-    padding: 1rem;
-    pointer-events: none;
-    transition: all 0.3s ease;
+.task .actions .edit {
+	background-image: linear-gradient(to right, var(--pink), var(--purple));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
-.select::hover::after {
-    background: white;
-    color: rgb(255, 200, 0);
+.task .actions .delete {
+	color: crimson;
 }
